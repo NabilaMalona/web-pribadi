@@ -1,0 +1,537 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #2c0711;
+}
+
+.hero {
+    color: #f9f9f9;
+    border-top: 1px solid #844d57;
+    margin-bottom: 30px;
+}
+
+.hero h3 {
+    color: #b9003b;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    color: #b0b0b0;
+    font-size: 0.90rem;
+    margin-top: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* header */
+.navbar {
+    background: #2c0711;
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    width: 300px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 20%;
+    justify-content: center;
+    margin: auto;
+}
+
+.navbar-inner img {
+    border-radius: 20px;
+    display: block;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 18px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+/* hero */
+.hero {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.hero h1 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.menu {
+    display: flex;
+    text-align: center;
+    gap: 30px;
+    margin: 0 auto;
+    font-weight: 500;
+    position: static;
+    gap: 25px;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: lowercase;
+    position: relative;
+    text-align: center;
+}
+
+/* hover */
+.menu a:hover {
+    font-weight: 700;
+}
+
+/* drop down */
+.dropdown {
+    position: relative;
+}
+
+.dropdown input {
+    display: none;
+}
+
+.dropdown label {
+    cursor: pointer;
+    color: white;
+}
+
+/* dropdown box */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #410a19;
+
+    display: none;
+    flex-direction: column;
+
+    min-width: 180px;
+    z-index: 1000;
+}
+
+/* item dropdown */
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* hover desktop */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* hover item */
+.dropdown-content a:hover {
+    background: #ffffff;
+    color: #410a19;
+    border-radius: 15px;
+}
+
+
+/* SHOW */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* gambar slide */
+.slides img {
+    width: 100%;
+    flex: 0 0 100%;
+    height: 250px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    object-fit: cover;
+}
+
+.newsletter {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.newsletter h2 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.newsletter p {
+    margin-bottom: 20px;
+    color: #828282;
+}
+
+.newsletter form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+.newsletter input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+
+.birthday {
+    display: flex;
+    gap: 5px;
+}
+
+.birthday input {
+    flex: 1;
+}
+
+/* button */
+.newsletter button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: rgb(95, 95, 95);
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.small-text {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* footer */
+footer {
+    background: #410a19;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left p {
+    margin: 2px 0;
+}
+
+.social-bar {
+    display: flex;
+    gap: 15px;
+}
+
+.social-bar a {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.social-bar {
+    text-align: right;
+    justify-content: right;
+}
+
+.social-bar a {
+    margin: 0 10px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.nav-Toggle {
+    display: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.navbar-inner>* {
+    flex-shrink: 0;
+}
+
+/* hamburger */
+.navToggleMenu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.navToggleMenu span {
+    width: 24px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.navToggleMenu:hover span {
+    background: #ffd1dc;
+}
+
+
+/* produk */
+.products {
+    padding: 40px 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.product-card {
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f9f9f9;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+.product-card {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.overlay i {
+    font-size: 16px;
+    color: white;
+    background: #430013;
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.product-card:hover .overlay {
+    opacity: 1;
+}
+
+/* hover icon */
+.overlay i:hover {
+    transform: scale(1.1);
+    background: #6a1b2d;
+}
+
+.overlay i {
+    transform: scale(0.8);
+}
+
+.product-card:hover .overlay i {
+    transform: scale(1);
+}
+
+.search-nav {
+    display: block;
+    padding: 10px 20px;
+    background: #430013;
+}
+
+.search-nav i {
+    position: static;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.top-right {
+    position: static;
+    display: flex;
+    gap: 10px;
+}
+
+/* menu hamburger */
+.search-nav {
+    display: none;
+    flex-direction: column;
+    background: #430013;
+    padding: 15px;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 4, auto;
+    gap: 15px;
+}
+
+/* MOBILE VERSION*/
+@media (max-width: 768px) {
+    .navbar-inner {
+        padding: 1px 15px 1px 15px
+    }
+
+    .navToggleMenu {
+        display: flex;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100dvh;
+        background: #430719;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding-top: 20px;
+        padding-bottom: 60px;
+        overflow-y: auto;
+        transform: translateY(-100%);
+        transition: 0.4s ease;
+        z-index: 999;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-Toggle:checked~.menu {
+        transform: translateY(0);
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .menu a,
+    .dropdown label {
+        display: block;
+        width: 100%;
+        padding: 16px 0;
+        text-align: center;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    /* dropdown container */
+    .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%;
+        background: #8c0020;
+
+        flex-direction: column;
+    }
+
+    .dropdown input:checked~.dropdown-content {
+        display: flex;
+    }
+
+    .dropdown-content a {
+        display: block;
+        width: 100%;
+
+        padding: 12px 0;
+        text-align: center;
+        font-size: 16px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@keyframes GayaMasuk {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.logo,
+.navbar-inner,
+.menu {
+    animation: GayaMasuk 0.8s ease;
+}
+
+.backTop {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    padding: 10px;
+    color: #ffff;
+    border-radius: 10px;
+    font-size: 2rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}

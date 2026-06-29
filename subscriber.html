@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriber — CharmsbyBee</title>
+    <link rel="stylesheet" href="CSS/subscriber.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="page-header">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Kembali
+            <img src="logocharmsbybee.png" alt="logo" class="logo">
+        </a>
+    </header>
+    <main class="container">
+        <div class="page-title">
+            <h1>Data Subscriber</h1>
+            <p>Daftar subscriber yang berlangganan CharmsbyBee</p>
+        </div>
+
+        <!-- statistik -->
+        <div class="stats-row">
+            <div class="stat-card accent">
+                <div class="label">Total Subscriber</div>
+                <div class="value" id="stat-total">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Daftar Bulan Ini</div>
+                <div class="value" id="stat-bulan">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Dengan Tgl Lahir</div>
+                <div class="value" id="stat-tgl">0</div>
+            </div>
+        </div>
+
+        <!-- toolbar -->
+        <div class="toolbar">
+            <div class="search-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Cari nama atau email…">
+            </div>
+            <button class="btn danger" onclick="confirmHapusSemua()">
+                <i class="fas fa-trash"></i> Hapus Semua
+            </button>
+        </div>
+
+        <!-- tabel -->
+        <div class="table-wrap">
+            <table id="subscriberTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nama Depan</th>
+                        <th>Email</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Tanggal Daftar</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+
+            <div class="empty-state" id="emptyState" style="display:none;">
+                <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+                <h3>Belum ada subscriber</h3>
+                <p>Form newsletter di halaman utama belum ada yang mengisi.</p>
+                <a href="index.html">Ke Halaman Utama</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <p>Terms & Policies</p>
+        <p>&copy; 2026 CharmsbyBee</p>
+    </footer>
+
+    <!-- hapus salah satu -->
+    <div class="modal-overlay" id="modalHapusSatu">
+        <div class="modal-box">
+            <div class="modal-icon"><i class="fas fa-trash-alt"></i></div>
+            <h3>Hapus subscriber?</h3>
+            <p>Data <strong id="modalNama"></strong> akan dihapus secara permanen.</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="tutupModal('modalHapusSatu')">Batal</button>
+                <button class="btn-hapus" onclick="hapusSatu()">Ya, Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- hapus semuanya -->
+    <div class="modal-overlay" id="modalHapusSemua">
+        <div class="modal-box">
+            <div class="modal-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <h3>Hapus semua data?</h3>
+            <p>Semua data subscriber akan dihapus. Tindakan ini tidak dapat dibatalkan.</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="tutupModal('modalHapusSemua')">Batal</button>
+                <button class="btn-hapus" onclick="hapusSemua()">Ya, Hapus Semua</button>
+            </div>
+        </div>
+    </div>
+    <script src="subscriber.js"></script>
+</body>
+
+</html>
