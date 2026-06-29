@@ -425,15 +425,6 @@
             border-top: 1px solid #561625;
         }
 
-
-        @keyframes GayaMasuk {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-                /* geser kebawah sebanyak 20px */
-            }
-        }
-
         .logo,
         .navbar-inner,
         .menu {
@@ -525,6 +516,15 @@
             border-color: #c97b84;
             color: #a85d66;
         }
+
+        @keyframes GayaMasuk {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                /* geser kebawah sebanyak 20px */
+            }
+        }
+    
 
         @media (max-width: 768px) {
             .page-header {
