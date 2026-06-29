@@ -70,6 +70,14 @@ function renderTable(data) {
             <td class="td-date">
                 <span class="badge-daftar">${escHtml(sub.tanggalDaftar || "-")}</span>
             </td>
+            <div class="action-btns">
+                <button
+                    class="btn-icon edit"
+                    title="Edit"
+                    onclick="bukaEdit(${sub.id})">
+                    <i class="fas fa-pen"></i>
+                </button>
+            </div>
             <td>
                 <button
                     class="btn-icon"
@@ -122,6 +130,80 @@ function escHtml(str) {
         .replace(/"/g, "&quot;");
 }
 
+// ── Buka modal Edit ──
+function bukaEdit(id) {
+    // Cari data subscriber berdasarkan id
+    const sub = allData.find(s => s.id === id);
+    if (!sub) return;
+
+    // Pisahkan tanggalLahir "15 / 06 / 2001" kembali ke 3 field
+    const bagian = (sub.tanggalLahir && sub.tanggalLahir !== "-")
+        ? sub.tanggalLahir.split(" / ")
+        : ["", "", ""];
+
+    // Isi field modal dengan data yang ada
+    document.getElementById("editId").value = sub.id;
+    document.getElementById("editNama").value = sub.namaDepan;
+    document.getElementById("editEmail").value = sub.email;
+    document.getElementById("editTanggal").value = bagian[0] || "";
+    document.getElementById("editBulan").value = bagian[1] || "";
+    document.getElementById("editTahun").value = bagian[2] || "";
+
+    document.getElementById("modalEdit").classList.add("active");
+}
+
+// ── Simpan hasil Edit ke localStorage ──
+function simpanEdit() {
+    const id = Number(document.getElementById("editId").value);
+    const nama = document.getElementById("editNama").value.trim();
+    const email = document.getElementById("editEmail").value.trim();
+    const tanggal = document.getElementById("editTanggal").value.trim();
+    const bulan = document.getElementById("editBulan").value.trim();
+    const tahun = document.getElementById("editTahun").value.trim();
+
+    // Validasi wajib
+    if (nama === "" || email === "") {
+        alert("Nama dan Email tidak boleh kosong!");
+        return;
+    }
+
+    // Validasi format email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Format email tidak valid!");
+        return;
+    }
+
+    // Cek duplikat email — boleh sama dengan dirinya sendiri
+    const duplikat = allData.some(s =>
+        s.email.toLowerCase() === email.toLowerCase() && s.id !== id
+    );
+    if (duplikat) {
+        alert("Email ini sudah dipakai subscriber lain!");
+        return;
+    }
+
+    // Gabungkan tanggal lahir
+    const tanggalLahir = [tanggal, bulan, tahun].filter(Boolean).join(" / ") || "-";
+
+    // Update data di array allData
+    allData = allData.map(s => {
+        if (s.id === id) {
+            return {
+                ...s,
+                namaDepan: nama,
+                email: email,
+                tanggalLahir: tanggalLahir
+            };
+        }
+        return s;
+    });
+
+    // Simpan kembali ke localStorage
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+
+    tutupModal("modalEdit");
+    loadData(); // refresh tabel + statistik
+}
 function escAttr(str) {
     return String(str || "").replace(/'/g, "\\'");
 }

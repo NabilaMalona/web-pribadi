@@ -202,7 +202,7 @@
         }
 
         thead tr {
-            background: #561625;
+            background-color: #561625;
         }
 
         thead th {
@@ -321,7 +321,7 @@
         }
 
         .empty-state a:hover {
-            background: var(--rose-deep);
+            background: #a85d66;
         }
 
         /* notif untuk hapus */
@@ -425,74 +425,6 @@
             border-top: 1px solid #561625;
         }
 
-        @media (max-width: 768px) {
-            .page-header {
-                padding: 20px;
-            }
-
-            .logo {
-                width: 120px;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            .table-wrap {
-                font-size: 0.86;
-                font-weight: 100;
-            }
-
-            .search-wrap {
-                max-width: 280px;
-            }
-
-            .btn {
-                display: flex;
-                right: 15px;
-            }
-
-
-            /* ✅ FIX 1 — hilangkan spasi sebelum kurung: repeat(3, 1fr) bukan repeat (3, 1fr) */
-            .stats-row {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            /* ✅ FIX 2 — tabel bisa scroll horizontal jika terlalu sempit */
-            .table-wrap {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            /* ✅ FIX 3 — teks di dalam sel boleh turun ke baris bawah */
-            table {
-                font-size: 0.75rem;
-                table-layout: auto;
-                width: 100%;
-            }
-
-            thead th,
-            tbody td {
-                padding: 8px 8px;
-                white-space: normal;
-                /* teks boleh wrap ke bawah */
-                word-break: break-word;
-                /* teks panjang (email, tanggal) turun ke bawah */
-                vertical-align: top;
-                /* teks multi-baris rata atas */
-            }
-
-            /* kolom # dan aksi tombol dikecilkan supaya kolom isi dapat ruang lebih */
-            thead th:first-child,
-            tbody td:first-child {
-                width: 24px;
-            }
-
-            thead th:last-child,
-            tbody td:last-child {
-                width: 36px;
-            }
-        }
 
         @keyframes GayaMasuk {
             from {
@@ -520,4 +452,139 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* ── bagian Edit ── */
+        .edit-field {
+            text-align: left;
+            margin-bottom: 0.9rem;
+        }
+
+        .edit-field label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #9a7878;
+            margin-bottom: 5px;
+        }
+
+        .edit-field input {
+            width: 100%;
+            padding: 0.55rem 0.85rem;
+            border: 1px solid #e8d0d0;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.83rem;
+            color: #3d2c2c;
+            background: #fdf6f0;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .edit-field input:focus {
+            border-color: #c97b84;
+        }
+
+        .edit-birthday {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.5fr;
+            gap: 8px;
+        }
+
+        .btn-simpan {
+            padding: 0.6rem 1.3rem;
+            border-radius: 8px;
+            border: 1px solid #c97b84;
+            background: #c97b84;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            transition: background 0.15s;
+        }
+
+        .btn-simpan:hover {
+            background: #a85d66;
+            border-color: #a85d66;
+        }
+
+        /* tombol edit di tabel */
+        .btn-icon.edit {
+            color: #c97b84;
+            margin-top: 12px;
+            margin-left: 17px;
+        }
+
+        .btn-icon.edit:hover {
+            background: #f2d9d9;
+            border-color: #c97b84;
+            color: #a85d66;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 20px;
+            }
+
+            .logo {
+                width: 120px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            /* ── Toolbar ── */
+            .search-wrap {
+                max-width: 250px;
+            }
+
+            .btn {
+                display: flex;
+                right: 15px;
+                white-space: nowrap;
+            }
+
+            .table-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                font-size: 0.75rem;
+                table-layout: auto;
+                width: 100%;
+            }
+
+            thead th {
+                padding: 8px;
+                white-space: nowrap;
+                vertical-align: middle;
+            }
+
+            tbody td {
+                padding: 8px;
+                white-space: normal;
+                word-break: break-word;
+                vertical-align: top;
+            }
+
+            thead th:first-child,
+            tbody td:first-child {
+                width: 24px;
+            }
+
+            thead th:last-child,
+            tbody td:last-child {
+                width: 36px;
+            }
         }

@@ -63,6 +63,9 @@
                         <th>Email</th>
                         <th>Tanggal Lahir</th>
                         <th>Tanggal Daftar</th>
+                        <th>Edit</th>
+                        <th>Hapus</th>
+
                         <th></th>
                     </tr>
                 </thead>
@@ -94,6 +97,39 @@
             <div class="modal-actions">
                 <button class="btn-cancel" onclick="tutupModal('modalHapusSatu')">Batal</button>
                 <button class="btn-hapus" onclick="hapusSatu()">Ya, Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- edit  -->
+    <div class="modal-overlay" id="modalEdit">
+        <div class="modal-box">
+            <div class="modal-icon" style="color: #c97b84;">
+                <i class="fas fa-pen"></i>
+            </div>
+            <h3>Edit Subscriber</h3>
+            <input type="hidden" id="editId">
+
+            <div class="edit-field">
+                <label for="editNama">Nama Depan</label>
+                <input type="text" id="editNama" placeholder="Nama depan">
+            </div>
+            <div class="edit-field">
+                <label for="editEmail">Email</label>
+                <input type="email" id="editEmail" placeholder="Email">
+            </div>
+            <div class="edit-field">
+                <label>Tanggal Lahir</label>
+                <div class="edit-birthday">
+                    <input type="text" id="editTanggal" placeholder="Tanggal" maxlength="2">
+                    <input type="text" id="editBulan" placeholder="Bulan" maxlength="2">
+                    <input type="text" id="editTahun" placeholder="Tahun" maxlength="4">
+                </div>
+            </div>
+
+            <div class="modal-actions" style="margin-top: 1.2rem;">
+                <button class="btn-cancel" onclick="tutupModal('modalEdit')">Batal</button>
+                <button class="btn-simpan" onclick="simpanEdit()">Simpan</button>
             </div>
         </div>
     </div>

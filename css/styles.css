@@ -81,11 +81,10 @@ body {
 .menu {
     display: flex;
     text-align: center;
-    gap: 30px;
     margin: 0 auto;
     font-weight: 500;
     position: static;
-    gap: 25px;
+    gap: 15px;
 }
 
 .dropdown-content {
